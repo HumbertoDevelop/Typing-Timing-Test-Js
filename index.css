@@ -1,0 +1,110 @@
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,400&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.spanTime{
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.player-pos{
+    position: absolute;
+    z-index: 100;
+    top: 200px;
+    right: 650px;
+    color: white;
+    border-radius: 1.2rem;
+    background-color: gray;
+    padding: 1.5em;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+/* Start */
+
+/* Container */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+/* Container */
+
+/* container-time */
+.container-time{
+    margin: 1.3rem 0;
+    background-color: black;
+    border-radius: .7rem;
+    padding: 1.3rem 4.3em;
+}
+
+#time{
+    padding-left: 1.5rem;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+.container-time .container-time_head{
+    font-weight: 400;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-time_head > h4 {
+    color: aliceblue;
+}
+
+.container-time .container-time_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+}
+
+.container-time_body .btn-start{
+    border-color: transparent;
+    border-width: 0;
+    border-style: none;
+    padding: .6rem;
+    background-color: white;
+    color: black;
+    border-radius: .2rem;
+}
+/* container-time */
+
+/* container-text */
+
+.container-text p{
+    padding: 0 1.2rem;
+    font-weight: bolder;
+    color: black;
+    font-size: 1.1em;
+}
+
+/* container-text */
+
+/* container-typing */
+.container-typing{
+    margin: 1rem 0;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+#typing{
+    border: none;
+}
+/* container-typing */
