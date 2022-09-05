@@ -16,54 +16,54 @@ d.addEventListener("DOMContentLoaded", (e) => {
     init_box();
     // Function time counter from 0
     function time() {
-            let inter = setInterval(() => {
-                if (typingContent.value.length != val.length) {
-                    contt++
-                    divTime.innerHTML = contt;
-                    return true;
-                } else if (typingContent.value.length == val.length && typingContent.value != val) {
-                    round++;
-                    pos.innerHTML = "Lose";
-                    if (ol.childElementCount < 3) {
-                        ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
-                    } else {
-                        ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
-                    }
-                    pos.style.display = "block";
-                    typingContent.disabled = true;
-                    setTimeout(() => {
-                        pos.style.display = "none";
-                        contt = 0;
-                        conts = 3;
-                        clickStart = 0;
-                        divTime.innerHTML = contt;
-                        typingContent.value = '';
-                    }, 3000)
-                    clearInterval(inter);
-                    return false;
-
-                } else if (typingContent.value.length === val.length && typingContent.value === val) {
-                    pos.innerHTML = "Win";
-                    if (ol.childElementCount < 3) {
-                        ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
-                    } else {
-                        round = 0;
-                        ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
-                    }
-                    pos.style.display = "block";
-                    typingContent.disabled = true;
-                    setTimeout(() => {
-                        pos.style.display = "none";
-                        contt = 0;
-                        conts = 3;
-                        clickStart = 0;
-                        divTime.innerHTML = contt;
-                        typingContent.value = '';
-                    }, 3000)
-                    clearInterval(inter);
-                    return false;
+        let inter = setInterval(() => {
+            if (typingContent.value.length != val.length) {
+                contt++
+                divTime.innerHTML = contt;
+                return true;
+            } else if (typingContent.value.length == val.length && typingContent.value != val) {
+                round++;
+                pos.style.color = "black";
+                pos.innerHTML = "Lose";
+                if (ol.childElementCount < 3) {
+                    ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
+                } else {
+                    ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
                 }
-            }, 1000)
+                typingContent.disabled = true;
+                setTimeout(() => {
+                    pos.style.color = "white";
+                    contt = 0;
+                    conts = 3;
+                    clickStart = 0;
+                    divTime.innerHTML = contt;
+                    typingContent.value = '';
+                }, 3000)
+                clearInterval(inter);
+                return false;
+
+            } else if (typingContent.value.length === val.length && typingContent.value === val) {
+                pos.style.color = "black";
+                pos.innerHTML = "Win";
+                if (ol.childElementCount < 3) {
+                    ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
+                } else {
+                    round = 0;
+                    ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
+                }
+                typingContent.disabled = true;
+                setTimeout(() => {
+                    pos.style.color = "white";
+                    contt = 0;
+                    conts = 3;
+                    clickStart = 0;
+                    divTime.innerHTML = contt;
+                    typingContent.value = '';
+                }, 3000)
+                clearInterval(inter);
+                return false;
+            }
+        }, 1000)
 
     }
     // Function time counter from 0

@@ -7,9 +7,6 @@
     margin: 0;
 }
 
-body{
-    min-height: 100vh;
-}
 
 .spanTime{
     color: black;
@@ -17,20 +14,18 @@ body{
     font-size: 1.2rem;
 }
 
+.player{
+    margin: 1.6rem 0;
+}
+
 .player-pos{
-    position: absolute;
-    z-index: 100;
-    top: 220px;
-    right: 650px;
-    color: black;
+    color: white;
     border-radius: 1.2rem;
     background-color: white;
-    padding: 1.5em;
-    font-size: 3em;
+    padding: .8em;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
-    display: none;
-    opacity: .96;
 }
 
 .score-ol{
@@ -50,7 +45,6 @@ body{
 /* Container */
 
 .container{
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
