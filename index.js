@@ -1,59 +1,70 @@
 const d = document;
-const divTime = d.querySelector("#time");
-const resetBtn = d.querySelector(".btn-reset");
-const startBtn = d.querySelector(".btn-start");
-const spanTime = d.querySelector(".spanTime");
-const typingContent = d.querySelector("#typing");
-const challenge = d.querySelector(".container-text p");
-const pos = d.querySelector(".player-pos");
-var clickStart = 0;
-const val = "Write this text exactly as fast as you can to know if you're the fastest in this game!.";
-var contt = 0;
-var conts = 3;
 d.addEventListener("DOMContentLoaded", (e) => {
-
+    const divTime = d.querySelector("#time");
+    const startBtn = d.querySelector(".btn-start");
+    const spanTime = d.querySelector(".spanTime");
+    const typingContent = d.querySelector("#typing");
+    const challenge = d.querySelector(".container-text p");
+    const ol = d.querySelector(".score-ol");
+    const pos = d.querySelector(".player-pos");
+    var clickStart = 0;
+    var round = 0;
+    const val = "Write this text exactly as fast as you can to know if you're the fastest in this game!.";
+    var contt = 0;
+    var conts = 3;
     // Init
     init_box();
-
-
-
     // Function time counter from 0
     function time() {
-        let inter = setInterval(() => {
-            if (typingContent.value.length != val.length) {
-                contt++
-                divTime.innerHTML = contt;
-                return true;
-            } else if (typingContent.value.length == val.length && typingContent.value != val) {
-                pos.innerHTML = "Lose";
-                pos.style.display = "block";
-                typingContent.disabled = true;
-                setTimeout(() => {
-                    pos.style.display = "none";
-                    contt = 0;
-                    conts = 3;
-                    clickStart = 0;
+            let inter = setInterval(() => {
+                if (typingContent.value.length != val.length) {
+                    contt++
                     divTime.innerHTML = contt;
-                    typingContent.value = '';
-                }, 5000)
-                clearInterval(inter);
-                return false;
+                    return true;
+                } else if (typingContent.value.length == val.length && typingContent.value != val) {
+                    round++;
+                    pos.innerHTML = "Lose";
+                    if (ol.childElementCount < 3) {
+                        ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
+                    } else {
+                        ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
+                    }
+                    pos.style.display = "block";
+                    typingContent.disabled = true;
+                    setTimeout(() => {
+                        pos.style.display = "none";
+                        contt = 0;
+                        conts = 3;
+                        clickStart = 0;
+                        divTime.innerHTML = contt;
+                        typingContent.value = '';
+                    }, 3000)
+                    clearInterval(inter);
+                    return false;
 
-            } else if (typingContent.value.length === val.length && typingContent.value === val) {
-                pos.style.display = "block";
-                typingContent.disabled = true;
-                setTimeout(() => {
-                    pos.style.display = "none";
-                    contt = 0;
-                    conts = 3;
-                    clickStart = 0;
-                    divTime.innerHTML = contt;
-                    typingContent.value = '';
-                }, 5000)
-                clearInterval(inter);
-                return false;
-            }
-        }, 1000)
+                } else if (typingContent.value.length === val.length && typingContent.value === val) {
+                    pos.innerHTML = "Win";
+                    if (ol.childElementCount < 3) {
+                        ol.innerHTML += `<li>Time: ${contt} - ${pos.textContent}`;
+                    } else {
+                        round = 0;
+                        ol.innerHTML = `<li>Time: ${contt} - ${pos.textContent}`;
+                    }
+                    pos.style.display = "block";
+                    typingContent.disabled = true;
+                    setTimeout(() => {
+                        pos.style.display = "none";
+                        contt = 0;
+                        conts = 3;
+                        clickStart = 0;
+                        divTime.innerHTML = contt;
+                        typingContent.value = '';
+                    }, 3000)
+                    clearInterval(inter);
+                    return false;
+                }
+            }, 1000)
+
     }
     // Function time counter from 0
 

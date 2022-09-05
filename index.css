@@ -7,6 +7,10 @@
     margin: 0;
 }
 
+body{
+    min-height: 100vh;
+}
+
 .spanTime{
     color: black;
     font-weight: bold;
@@ -16,22 +20,37 @@
 .player-pos{
     position: absolute;
     z-index: 100;
-    top: 200px;
+    top: 220px;
     right: 650px;
-    color: white;
+    color: black;
     border-radius: 1.2rem;
-    background-color: gray;
+    background-color: white;
     padding: 1.5em;
     font-size: 3em;
     font-weight: bold;
     text-align: center;
     display: none;
+    opacity: .96;
+}
+
+.score-ol{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 1.3em 0;
+    color: black;
+    font-weight: bold;
+}
+
+.score-ol li{
+    margin-bottom: 10px;
 }
 /* Start */
 
 /* Container */
 
 .container{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
